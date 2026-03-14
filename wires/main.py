@@ -1,15 +1,15 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.measure import label
-from skimage.morphology import binary_opening
+from skimage.morphology import opening
 
-image=np.load("./wires/wires6.npy")
+image=np.load("./wires6.npy")
 struct=np.ones((3, 1))
 
 
 labeled_image = label(image)
 for i in range(1, np.max(labeled_image)+1):
-    process = binary_opening(labeled_image==i, struct)
+    process = opening(labeled_image==i, struct)
     tmp = label(process)
     if np.max(tmp)==1:
         print(f"Провод {i} целый")
