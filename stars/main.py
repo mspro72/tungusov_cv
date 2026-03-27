@@ -2,10 +2,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 from skimage.measure import label, regionprops
 
-def centroid(labeled, label=1):
-    y, x = np.where(labeled==label)
-    return np.mean(y), np.mean(x)
-
 plus_pat = np.array([[0,0,1,0,0],
                      [0,0,1,0,0],
                      [1,1,1,1,1],
